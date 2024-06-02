@@ -63,3 +63,36 @@ h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings *
         width: 90%;
     }
 }
+
+/* Styles for the visitor count container */
+#visitor-count-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#visitor-count {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 5px;
+    color: #4CAF50;
+    transition: transform 0.3s ease; /* Added transition */
+}
+
+/* Animation for visitor count */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.visitor-animate {
+    animation: bounceIn 0.5s ease;
+}
