@@ -42,18 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // Animate QR code
-    var qrCodeImg = document.getElementById('qr-code-img');
-    qrCodeImg.classList.add('pulse');
-
     // Track visitor count
     var visitorCount = localStorage.getItem('visitorCount');
-    if (visitorCount) {
-        visitorCount = parseInt(visitorCount) + 1;
-    } else {
+    if (!visitorCount) {
+        localStorage.setItem('visitorCount', 1);
         visitorCount = 1;
     }
-    localStorage.setItem('visitorCount', visitorCount);
 
     // Display visitor count with animation
     var visitorCountElement = document.getElementById('visitor-count');
