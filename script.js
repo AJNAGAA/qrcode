@@ -54,5 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
         visitorCount = 1;
     }
     localStorage.setItem('visitorCount', visitorCount);
-    document.getElementById('visitor-count').textContent = visitorCount + ' visitors';
+
+    // Display visitor count with animation
+    var visitorCountElement = document.getElementById('visitor-count');
+    visitorCountElement.textContent = visitorCount;
+
+    // Trigger animation
+    visitorCountElement.classList.add('visitor-animate');
 });
