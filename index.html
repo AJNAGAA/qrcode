@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEN</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ZEN</h1>
+        <img class="qr-code" id="qr-code-img" src="" alt="Payment QR Code">
+        <div class="payment-info">
+            <p id="upi-id" style="display: none;">UPI ID: 8217392319@fam</p>
+            <p>Scan the QR code or use the provided UPI ID to make a payment.</p>
+        </div>
+        <div class="payment-form">
+            <h2>Make a Custom Payment</h2>
+            <form id="payment-form" action="upi://pay" method="get">
+                <input type="hidden" name="pa" value="8217392319@fam">
+                <input type="hidden" name="am" value="">
+                <input type="hidden" name="cu" value="INR">
+                <label for="amount">Amount:</label>
+                <input type="number" name="am" id="amount" placeholder="Enter amount (INR)" min="1" step="1">
+                <label for="description">Description:</label>
+                <input type="text" name="tn" id="description" placeholder="Enter description (optional)">
+                <input type="submit" value="Make Payment">
+            </form>
+        </div>
+        <p>Thank you for your support!</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
