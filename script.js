@@ -41,4 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
         paymentForm.elements.namedItem('am').value = amountValue;
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate QR code
+    var qrCodeImg = document.getElementById('qr-code-img');
+    qrCodeImg.classList.add('pulse');
 
+    // Track visitor count
+    var visitorCount = localStorage.getItem('visitorCount');
+    if (visitorCount) {
+        visitorCount = parseInt(visitorCount) + 1;
+    } else {
+        visitorCount = 1;
+    }
+    localStorage.setItem('visitorCount', visitorCount);
+    document.getElementById('visitor-count').textContent = visitorCount + ' visitors';
+});
