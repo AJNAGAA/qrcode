@@ -12,18 +12,15 @@ body { font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts *
 
 h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings */ color: #4CAF50; /* Accent color for headings */ } 
 
-.qr-code { width: 300px; height: 300px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); animation: pulse 2s infinite alternate; /* Animation definition */ }
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
+/* Remove animation for the QR code */
+.qr-code {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-..payment-info { margin-bottom: 20px; color: #777; }
+.payment-info { margin-bottom: 20px; color: #777; }
 
 .payment-info p {
     margin: 5px;
@@ -77,7 +74,7 @@ h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings *
     font-weight: bold;
     margin-right: 5px;
     color: #4CAF50;
-    transition: transform 0.3s ease; /* Added transition */
+    transition: transform 0.3s ease;
 }
 
 /* Animation for visitor count */
