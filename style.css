@@ -1,34 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEN</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>ZEN</h1>
-        <img class="qr-code" id="qr-code-img" src="" alt="Payment QR Code">
-        <div class="payment-info">
-            <p id="upi-id" style="display: none;">UPI ID: 8217392319@fam</p>
-            <p>Scan the QR code.</p>
-        </div>
-        <div class="payment-form">
-            <h2>Make a Custom Payment</h2>
-            <form id="payment-form" action="upi://pay" method="get">
-                <input type="hidden" name="pa" value="8217392319@fam">
-                <input type="hidden" name="am" value="">
-                <input type="hidden" name="cu" value="INR">
-                <label for="amount">Amount:</label>
-                <input type="number" name="am" id="amount" placeholder="Enter amount (INR)" min="1" step="1">
-                <label for="description">Description:</label>
-                <input type="text" name="tn" id="description" placeholder="Enter description (optional)">
-                <input type="submit" value="Make Payment">
-            </form>
-        </div>
-        <p>Thank you for your support!</p>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+body { font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts */ margin: 0; padding: 0; text-align: center; background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0); color: #333; }
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft box shadow for depth */
+    transition: all 0.3s ease;
+}
+
+h1 { margin-top: 0; font-family: 'Pacifico', cursive; /* Use Pacifico font for headings */ color: #4CAF50; /* Accent color for headings */ } 
+
+.qr-code {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+..payment-info { margin-bottom: 20px; color: #777; }
+
+.payment-info p {
+    margin: 5px;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="number"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.payment-form input[type="submit"] { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+
+.payment-form input[type="submit"]:hover { background-color: #45a049; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Import Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Import Pacifico font */
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+    .payment-form input[type="text"],
+    .payment-form input[type="number"] {
+        width: 90%;
+    }
+}
