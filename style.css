@@ -12,12 +12,15 @@ body { font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts *
 
 h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings */ color: #4CAF50; /* Accent color for headings */ } 
 
-.qr-code {
-    width: 300px;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.qr-code { width: 300px; height: 300px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); animation: pulse 2s infinite alternate; /* Animation definition */ }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
 ..payment-info { margin-bottom: 20px; color: #777; }
