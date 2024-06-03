@@ -56,3 +56,45 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger animation
     visitorCountElement.classList.add('visitor-animate');
 });
+// Backend server using Node.js and Express.js with sessions
+
+const express = require('express');
+const session = require('express-session');
+const app = express();
+
+// Use sessions
+app.use(session({
+    secret: 'secret-key', // Change this to a random secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Change this to true if using HTTPS
+}));
+
+// Middleware to track unique visitors
+app.use((req, res, next) => {
+    if (!req.session.visitorId) {
+        req.session.visitorId = generateVisitorId();
+        incrementVisitorCount();
+    }
+    next();
+});
+
+let visitorCount = 0;
+
+function incrementVisitorCount() {
+    visitorCount++;
+}
+
+// Generate a unique visitor ID
+function generateVisitorId() {
+    return Math.random().toString(36).substring(2);
+}
+
+// Get visitor count
+app.get('/count', (req, res) => {
+    res.send({ count: visitorCount });
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
