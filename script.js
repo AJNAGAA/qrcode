@@ -25,21 +25,3 @@ document.addEventListener('DOMContentLoaded', function() {
         var amountValue = amountInput.value;
         paymentForm.elements.namedItem('am').value = amountValue;
     });
-
-    // Track visitor count
-    var visitorCount = localStorage.getItem('visitorCount');
-    if (!visitorCount) {
-        localStorage.setItem('visitorCount', 1);
-        visitorCount = 1;
-    } else {
-        visitorCount = parseInt(visitorCount) + 1;
-        localStorage.setItem('visitorCount', visitorCount);
-    }
-
-    // Display visitor count with animation
-    var visitorCountElement = document.getElementById('visitor-count');
-    visitorCountElement.textContent = visitorCount;
-
-    // Trigger animation
-    visitorCountElement.classList.add('visitor-animate');
-});
