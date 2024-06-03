@@ -1,4 +1,11 @@
-body { font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts */ margin: 0; padding: 0; text-align: center; background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0); color: #333; }
+body {
+    font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(to bottom right, #f5f5f5, #e0e0e0);
+    color: #333;
+}
 
 .container {
     max-width: 600px;
@@ -10,7 +17,11 @@ body { font-family: 'Roboto', sans-serif; /* Use Roboto font from Google Fonts *
     transition: all 0.3s ease;
 }
 
-h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings */ color: #4CAF50; /* Accent color for headings */ } 
+h1 {
+    margin-top: 0;
+    font-family: 'Pacifico'; /* Use Pacifico font for headings */
+    color: #4CAF50; /* Accent color for headings */
+}
 
 /* Remove animation for the QR code */
 .qr-code {
@@ -20,7 +31,11 @@ h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings *
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.payment-info { margin-bottom: 20px; color: #777; }
+
+.payment-info {
+    margin-bottom: 20px;
+    color: #777;
+}
 
 .payment-info p {
     margin: 5px;
@@ -43,12 +58,23 @@ h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings *
     transition: all 0.3s ease;
 }
 
-.payment-form input[type="submit"] { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+.payment-form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-.payment-form input[type="submit"]:hover { background-color: #45a049; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Import Roboto font */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Import Pacifico font */
+.payment-form input[type="submit"]:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 @media screen and (max-width: 600px) {
     .container {
@@ -59,37 +85,4 @@ h1 { margin-top: 0; font-family: 'Pacifico'; /* Use Pacifico font for headings *
     .payment-form input[type="number"] {
         width: 90%;
     }
-}
-
-/* Styles for the visitor count container */
-#visitor-count-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#visitor-count {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 5px;
-    color: #4CAF50;
-    transition: transform 0.3s ease;
-}
-
-/* Animation for visitor count */
-@keyframes bounceIn {
-    0% {
-        transform: scale(0);
-    }
-    70% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.visitor-animate {
-    animation: bounceIn 0.5s ease;
 }
