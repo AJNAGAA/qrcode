@@ -65,10 +65,10 @@ const app = express();
 
 // Use sessions
 app.use(session({
-    secret: 'secret-key', // Change this to a random secret key
+    secret: '46784', // Change this to a random secret key
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Change this to true if using HTTPS
+    cookie: { secure: True } // Change this to true if using HTTPS
 }));
 
 // Middleware to track unique visitors
