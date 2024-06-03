@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var upiId = document.getElementById('upi-id').innerText;
     var qrCodeImg = document.getElementById('qr-code-img');
     qrCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(upiId) + '&size=300x300';
-    
+
     // Function to check if the device is a mobile device
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         qrCodeUrl += '&size=300x300'; // Adjust size for desktop devices
     }
     qrCodeImg.src = qrCodeUrl;
-    
+
     // Update 'am' hidden input value with the amount entered by the user
     var paymentForm = document.getElementById('payment-form');
     var amountInput = document.getElementById('amount');
@@ -25,3 +25,4 @@ document.addEventListener('DOMContentLoaded', function() {
         var amountValue = amountInput.value;
         paymentForm.elements.namedItem('am').value = amountValue;
     });
+});
