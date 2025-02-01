@@ -1,28 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Update QR code image source with UPI payment link
-    var upiId = document.getElementById('upi-id').innerText;
-    var qrCodeImg = document.getElementById('qr-code-img');
-    qrCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(upiId) + '&size=300x300';
-
-    // Function to check if the device is a mobile device
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    }
-
-    // Update QR code image source with appropriate URL based on device
-    var qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(upiId);
-    if (isMobileDevice()) {
-        qrCodeUrl += '&size=200x200'; // Adjust size for mobile devices
+// Initialize QR Code Scanner
+const qrReader = new Html5Qrcode("qr-reader");
+qrReader.start(
+  { facingMode: "environment" }, // Use rear camera
+  {
+    fps: 10,
+    qrbox: { width: 250, height: 250 }
+  },
+  (decodedText) => {
+    // Extract UPI ID from QR Code (if in the format `upi://pay?pa=upi-id`)
+    const urlParams = new URLSearchParams(decodedText.split('?')[1]);
+    const upiId = urlParams.get('pa');
+    if (upiId) {
+      document.getElementById('upi-id').value = upiId;
+      alert("UPI ID fetched from QR Code: " + upiId);
     } else {
-        qrCodeUrl += '&size=300x300'; // Adjust size for desktop devices
+      alert("Invalid QR Code format.");
     }
-    qrCodeImg.src = qrCodeUrl;
+    qrReader.stop(); // Stop scanning after successful read
+  },
+  (errorMessage) => {
+    console.error("QR Code scanning error:", errorMessage);
+  }
+);
 
-    // Update 'am' hidden input value with the amount entered by the user
-    var paymentForm = document.getElementById('payment-form');
-    var amountInput = document.getElementById('amount');
-    paymentForm.addEventListener('submit', function(event) {
-        var amountValue = amountInput.value;
-        paymentForm.elements.namedItem('am').value = amountValue;
-    });
+// Handle Pay Button Click
+document.getElementById('pay-btn').addEventListener('click', () => {
+  const upiId = document.getElementById('upi-id').value.trim();
+  const amount = document.getElementById('amount').value.trim();
+  const remarks = document.getElementById('remarks').value.trim();
+
+  if (!upiId) {
+    alert("Please enter a valid UPI ID.");
+    return;
+  }
+
+  if (!amount || amount <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+
+  alert(`Payment Initiated:
+  UPI ID: ${upiId}
+  Amount: ₹${amount}
+  Remarks: ${remarks || 'N/A'}
+  (Simulated Payment)`);
 });
