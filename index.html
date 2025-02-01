@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UPI Payment Page</title>
+  <title>Send Money to Me</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h2>UPI Payment Page</h2>
+    <h2>Send Money to Me</h2>
 
-    <!-- UPI Details Form -->
+    <!-- Input Form for Your UPI Details -->
     <form id="upi-payment-form">
-      <label for="upi-id">UPI ID:</label>
-      <input type="text" id="upi-id" placeholder="Enter UPI ID" required>
+      <label for="upi-id">8217392319@fam:</label>
+      <input type="text" id="upi-id" placeholder="Enter your UPI ID" required>
 
-      <label for="amount">Amount:</label>
-      <input type="number" id="amount" placeholder="Enter Amount" min="1" required>
+      <label for="amount">Amount (optional):</label>
+      <input type="number" id="amount" placeholder="Enter Amount" min="1">
 
-      <label for="remarks">Remarks:</label>
+      <label for="remarks">Remarks (optional):</label>
       <input type="text" id="remarks" placeholder="Add remarks (optional)">
 
       <button type="button" id="generate-qr-btn">Generate QR Code</button>
@@ -27,7 +27,7 @@
 
     <!-- QR Code Display Section -->
     <div class="qr-display">
-      <h3>UPI QR Code:</h3>
+      <h3>Your Payment QR Code:</h3>
       <div id="qr-code"></div>
     </div>
   </div>
