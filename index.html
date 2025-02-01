@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEN</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>ZEN</h1>
-        <img class="qr-code" id="qr-code-img" src="" alt="Payment QR Code">
-        <div class="payment-info">
-            <p id="upi-id" style="display: none;">UPI ID: 8217392319@fam</p>
-            <p>Scan the QR code.</p>
-        </div>
-        <div class="payment-form">
-            <h2>Make a Custom Payment</h2>
-            <form id="payment-form" action="upi://pay" method="get">
-                <input type="hidden" name="pa" value="8217392319@fam">
-                <input type="hidden" name="am" value="">
-                <input type="hidden" name="cu" value="INR">
-                <label for="amount">Amount:</label>
-                <input type="number" name="am" id="amount" placeholder="Enter amount (INR)" min="1" step="1">
-                <label for="description">Description:</label>
-                <input type="text" name="tn" id="description" placeholder="Enter description (optional)">
-                <input type="submit" value="Make Payment">
-            </form>
-        </div>
-        <p>Thank you for your support!</p>
+  <div class="container">
+    <h2>UPI Payment Page</h2>
+
+    <!-- QR Scanner Section -->
+    <div class="qr-scanner">
+      <label>Scan UPI QR Code:</label>
+      <div id="qr-reader"></div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- UPI Details Form -->
+    <form id="upi-payment-form">
+      <label for="upi-id">UPI ID:</label>
+      <input type="text" id="upi-id" placeholder="Enter UPI ID" required>
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="Enter Amount" min="1" required>
+
+      <label for="remarks">Remarks:</label>
+      <input type="text" id="remarks" placeholder="Add remarks (optional)">
+
+      <button type="button" id="pay-btn">Pay</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
