@@ -4,19 +4,20 @@ document.getElementById("generate-qr-btn").addEventListener("click", () => {
   const remarks = document.getElementById("remarks").value.trim();
 
   if (!upiId) {
-    alert("Please enter a valid UPI ID.");
-    return;
-  }
-
-  if (!amount || amount <= 0) {
-    alert("Please enter a valid amount.");
+    alert("Please enter your UPI ID.");
     return;
   }
 
   // Create UPI QR Code URL
-  const upiUrl = `upi://pay?pa=${upiId}&pn=Recipient&am=${amount}&cu=INR&tn=${encodeURIComponent(
-    remarks
-  )}`;
+  let upiUrl = `upi://pay?pa=${upiId}&pn=YourName&cu=INR`;
+  
+  if (amount) {
+    upiUrl += `&am=${amount}`;
+  }
+
+  if (remarks) {
+    upiUrl += `&tn=${encodeURIComponent(remarks)}`;
+  }
 
   // Generate QR Code
   const qrCodeDiv = document.getElementById("qr-code");
