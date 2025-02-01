@@ -14,13 +14,15 @@
     <!-- QR Scanner Section -->
     <div class="qr-scanner">
       <label>Scan UPI QR Code:</label>
-      <div id="qr-reader"></div>
+      <div id="qr-reader" style="width: 100%;"></div>
+      <button id="start-scan-btn">Start QR Scanner</button>
+      <button id="stop-scan-btn" style="display: none;">Stop QR Scanner</button>
     </div>
 
     <!-- UPI Details Form -->
     <form id="upi-payment-form">
       <label for="upi-id">UPI ID:</label>
-      <input type="text" id="upi-id" placeholder="8217392319@fam" required>
+      <input type="text" id="upi-id" placeholder="Enter UPI ID" required>
 
       <label for="amount">Amount:</label>
       <input type="number" id="amount" placeholder="Enter Amount" min="1" required>
